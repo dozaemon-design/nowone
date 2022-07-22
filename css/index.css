@@ -1,0 +1,18 @@
+main ul.music_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  row-gap: 10px;
+  padding: 10px;
+}
+@media screen and (max-width: 768px) {
+  main ul.music_list {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-width: 768px) {
+  main ul.music_list li {
+    max-width: 100%;
+  }
+}/*# sourceMappingURL=index.css.map */
