@@ -85,7 +85,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <?php wp_deregister_script('jquery'); ?>
 <?php wp_head(); ?>
 </head>
-<body<?php echo ( $body_id ) ? ' id="'.$body_id.'"' : ''; ?>>
+<body <?php echo ( $body_id ) ? ' id="'.$body_id.'"' : ''; ?> >
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFC2KQX"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -98,9 +98,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<label for="menu-btn-check" class="menu-btn"><span></span></label>
 	<nav id="gnav">
 		<ul class="gnav_list">
-			<li><a href="<?php echo get_template_directory_uri(); ?>"><img src="<?php bloginfo('template_url'); ?>/images/common/header/icon_lion.svg" alt="">HOME</a></li>
+			<li><a href="<?php echo home_url( '/' ); ?>"><img src="<?php bloginfo('template_url'); ?>/images/common/header/icon_lion.svg" alt="">HOME</a></li>
 			<!-- <li><a href=""><img src="<?php bloginfo('template_url'); ?>/images/common/header/icon_category.svg" alt="">CATEGORY</a></li> -->
-			<!-- <li><a href=""><img src="<?php bloginfo('template_url'); ?>/images/common/header/icon_profile.svg" alt="">PROFILE</a></li> -->
+			<li><a href="<?php echo home_url( '/profile' ); ?>"><img src="<?php bloginfo('template_url'); ?>/images/common/header/icon_profile.svg" alt="">PROFILE</a></li>
 			<!-- <li><a href=""><img src="<?php bloginfo('template_url'); ?>/images/common/header/icon_blog.svg" alt="">BLOG</a></li> -->
 			<!-- <li><a href=""><img src="<?php bloginfo('template_url'); ?>/images/common/header/icon_contact.svg" alt="">CONTACT</a></li> -->
 		</ul>
