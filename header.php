@@ -72,14 +72,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<?php bloginfo('template_url'); ?>" />
 <meta property="og:title" content="Nowone.jp" />
-<meta property="og:image" content="<?php bloginfo('template_url'); ?>/img/common/sns_image.jpg" />
+<meta property="og:image" content="<?php bloginfo('template_url'); ?>/images/common/sns/ogp.png" />
 <meta property="og:description" content="ウェブデザイナーnowone.jpの研究サイトです。" />
 <?php else: ?>
 <meta property="og:site_name" content="Nowone.jp" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<?php the_permalink() ?>" />
 <meta property="og:title" content="<?php the_title(); ?> | NowOne" />
-<meta property="og:image" content="" />
+<meta property="og:image" content="<?php bloginfo('template_url'); ?>/images/common/sns/ogp.png" />
 <meta property="og:description" content="ウェブデザイナーnowone.jpの研究サイトです。" />
 <?php endif; ?>
 <?php wp_deregister_script('jquery'); ?>
