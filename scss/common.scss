@@ -54,20 +54,24 @@ nav#gnav{
     }
     li{ 
       margin-bottom: 20px ;
-      border-bottom: 1px solid $white ;
-      position: relative ;
-      &:before{
-        content: "";
-        display: block;
-        border-right: 1px solid $white ;
-        height: 16px;
-        transform: rotate(-45deg);
-        position: absolute;
-        right: 6px;
-        bottom: -2px;
+      span{
+        border-bottom: 1px solid $white ;
+        position: relative;
+        padding: 5px 45px 5px 5px;
+        &:before{
+          content: "";
+          display: block;
+          border-right: 1px solid $white ;
+          height: 16px;
+          transform: rotate(-45deg);
+          position: absolute;
+          right: 6px;
+          bottom: -2px;
+        }
       }
       img{
         margin-right: 5px ;
+        vertical-align: middle;
       }
     }
   }
