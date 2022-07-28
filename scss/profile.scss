@@ -13,6 +13,37 @@ main#profile{
     font-size:30px;
     padding: 0 0 8px 0 ;
     margin: 0 0 16px 0 ;
-    border-bottom: 1px solid $white ;
+    span{
+      border-bottom: 1px solid $white ;
+      position: relative;
+      padding: 5px 10px 5px 5px;
+      &:before{
+        content: "";
+        display: block;
+        border-right: 1px solid $white ;
+        height: 31px;
+        transform: rotate(45deg);
+        position: absolute;
+        right: -11px;
+        bottom: -5px;
+      }
+      &:after{
+        content: "";
+        display: block;
+        border-bottom: 1px solid $white ;
+        width: 100%;
+        position: absolute;
+        left: 19px;
+        bottom: -5px;
+      }
+    }
+  }
+  h3{
+    font-family: 'Big Shoulders Text', cursive;
+    font-weight: 100 ;
+    font-size: 24px ;
+  }
+  p{
+    margin-bottom: 20px;
   }
 }

@@ -60,10 +60,13 @@ nav#gnav ul.gnav_list a {
 }
 nav#gnav ul.gnav_list li {
   margin-bottom: 20px;
+}
+nav#gnav ul.gnav_list li span {
   border-bottom: 1px solid #D9D9D9;
   position: relative;
+  padding: 5px 45px 5px 5px;
 }
-nav#gnav ul.gnav_list li:before {
+nav#gnav ul.gnav_list li span:before {
   content: "";
   display: block;
   border-right: 1px solid #D9D9D9;
@@ -75,6 +78,7 @@ nav#gnav ul.gnav_list li:before {
 }
 nav#gnav ul.gnav_list li img {
   margin-right: 5px;
+  vertical-align: middle;
 }
 nav#gnav ul.sns {
   padding: 0px;
