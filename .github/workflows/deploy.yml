@@ -18,8 +18,8 @@ jobs:
       - name: SSH Key Settings
         run: |
           mkdir -p ~/.ssh/
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~.ssh/authorized_keys
+          chmod 600 ~/.ssh/authorized_keys
 
       # SSH rsync実行
       - name: Deploy
