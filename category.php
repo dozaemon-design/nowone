@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <main>
 	<ul class="category_list">
-	<?php 
+	<?php
 	$categories = get_categories('hide_empty=1&title_li=');
 	if (is_array($categories)) {
 		foreach($categories as $category):

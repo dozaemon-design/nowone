@@ -99,7 +99,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<nav id="gnav">
 		<ul class="gnav_list">
 			<li><a href="<?php echo home_url( '/' ); ?>"><img src="<?php bloginfo('template_url'); ?>/images/common/header/icon_lion.svg" alt="">HOME</a></li>
-			<!-- <li><a href=""><img src="<?php bloginfo('template_url'); ?>/images/common/header/icon_category.svg" alt="">CATEGORY</a></li> -->
+			<li><a href="<?php echo home_url( '/category/music' ); ?>"><img src="<?php bloginfo('template_url'); ?>/images/common/header/icon_category.svg" alt="">MUSIC</a></li>
+			<li><a href="<?php echo home_url( '/category/movie' ); ?>"><img src="<?php bloginfo('template_url'); ?>/images/common/header/icon_movie.svg" alt="">MOVIE</a></li>
 			<li><a href="<?php echo home_url( '/profile' ); ?>"><img src="<?php bloginfo('template_url'); ?>/images/common/header/icon_profile.svg" alt="">PROFILE</a></li>
 			<!-- <li><a href=""><img src="<?php bloginfo('template_url'); ?>/images/common/header/icon_blog.svg" alt="">BLOG</a></li> -->
 			<!-- <li><a href=""><img src="<?php bloginfo('template_url'); ?>/images/common/header/icon_contact.svg" alt="">CONTACT</a></li> -->
