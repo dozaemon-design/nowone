@@ -11,8 +11,14 @@ main ul.music_list {
     grid-template-columns: 1fr;
   }
 }
+main ul.music_list li iframe {
+  aspect-ratio: 16/9;
+}
 @media screen and (max-width: 768px) {
   main ul.music_list li {
     max-width: 100%;
+  }
+  main ul.music_list li iframe::-webkit-scrollbar {
+    display: none;
   }
 }/*# sourceMappingURL=index.css.map */
