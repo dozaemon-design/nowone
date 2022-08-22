@@ -1,18 +1,13 @@
 <?php get_header(); ?>
 <main>
+<?php if( in_category('movie') ): ?>
 	<ul class="category_list">
-	<?php
-$tags = get_tags();
-foreach( $tags as $tag) {
-echo '<li><a href="'. get_tag_link($tag->term_id) .'">' . $tag->name . '</a></li>';
-}
+  <?php
+$tag = get_the_tags();
+echo '<li><a href="'. get_category_link($tag[0]->term_id) .'">' . $tag[0]->name . '</a></li>';
 ?>
 	</ul>
-
-
-
-<?php if( in_category('movie') ): ?>
-<ul class="music_list">
+  <ul class="music_list">
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
   <li>
       <?php
@@ -25,7 +20,13 @@ echo '<li><a href="'. get_tag_link($tag->term_id) .'">' . $tag->name . '</a></li
 </ul>
 
 <?php elseif( in_category('music') ): ?>
-	<ul class="music_list">
+	<ul class="category_list">
+  <?php
+$tag = get_the_tags();
+echo '<li><a href="'. get_category_link($tag[0]->term_id) .'">' . $tag[0]->name . '</a></li>';
+?>
+	</ul>
+  <ul class="music_list">
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
   <li>
 		<a href="<?php the_field('music_link'); ?>">

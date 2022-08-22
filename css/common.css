@@ -56,7 +56,9 @@ nav#gnav ul.gnav_list {
 nav#gnav ul.gnav_list a {
   text-decoration: none;
   color: #D9D9D9;
-  display: block;
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 nav#gnav ul.gnav_list li {
   margin-bottom: 20px;
