@@ -17,6 +17,7 @@
   </li>
 <?php endforeach; ?>
 </ul>
+
 <ul class="music_list">
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
   <li>
