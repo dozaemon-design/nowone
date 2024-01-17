@@ -12,7 +12,7 @@ echo '<li><a href="'. get_tag_link($tag->term_id) .'">' . $tag->name . '</a></li
 
 
 <?php if( in_category('movie') ): ?>
-<ul class="music_list">
+<ul class="movie_list">
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
   <li>
       <?php
