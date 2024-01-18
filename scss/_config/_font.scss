@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+//=======================================
+//
+//	font config
+//
+//=======================================
+
+// common line-height
+$L-height: 1.6em ;
+// @mixin font-face1 {
+//     @font-face {
+//         font-family: "myFont";
+//         src: url("../font/rounded-x-mgenplus-1c-regular.eot?")  format('eot'),
+//             url("../font/rounded-x-mgenplus-1c-regular.woff2") format('woff2'),
+//             url("../font/rounded-x-mgenplus-1c-regular.woff")  format('woff');
+//     }
+// }
+
+//body config
+@mixin font-face1 {
+    @import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
+}
+$basefont: "Noto Sans JP",thin,"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;

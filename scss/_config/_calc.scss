@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+//=======================================
+//
+//	calc basic setting config
+//
+//=======================================
+@mixin calc($property, $expression) {
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: -o-calc(#{$expression});
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}

@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+//=======================================
+//
+//	common layout cofig
+//
+//=======================================
+
+@import "_basic/calc";
+
+// section_common_margin
+@mixin Sec-margin{
+    padding: 5% 0 ;
+}
+
+//basic_layout
+@mixin common_layout {
+    max-width: 1000px ;
+    width: 100% ;
+    margin: 0 auto ;
+    @include sp(){
+        width: 96% ;
+    }
+}
+
+//block_contents colums
+//3colums
+@mixin colum3 ($max-width,$margin) {
+    @include calc(width, "33.3333% - 2%");
+    max-width: $max-width ;
+    margin: $margin ;
+    display: inline-block ;
+    text-align: left ;
+    &:last-child{
+        margin: 0 0 0 0 ;
+    }
+}
+
+//4colums
+@mixin colum4 ($max-width,$margin) {
+    @include calc(width, "25% - 2%");
+    max-width: $max-width ;
+    margin: $margin ;
+    display: inline-block ;
+    text-align: left ;
+    &:last-child{
+        margin: 0 0 0 0 ;
+    }
+}

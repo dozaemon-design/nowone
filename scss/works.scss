@@ -1,0 +1,170 @@
+@charset "utf-8";
+////////////////////////////////////////////////////
+//sass template
+////////////////////////////////////////////////////
+/* single-works.php ----------*/
+// @mixin LAYOUT-WORKS{
+body{
+    background-size: 100%;
+    background: url(../images/works/bg_works_top.jpg) no-repeat top center;
+    // overflow: hidden ;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    ul.works_list{
+        display: flex ;
+        justify-content: center ;
+        flex-wrap: wrap ;
+        width: 86% ;
+        margin: 0 auto ;
+        li{
+            margin: 0 20px 20px 0 ;
+            background: rgba(241,241,241,.6) ;
+            color: $Basic ;
+            text-align: center ;
+            transition: .3s ;
+            width: 25vw;
+            max-width: 350px ;
+            .img_wrap{
+                overflow: hidden ;
+            }
+            h3{
+                padding: 15px ;
+            }
+            a{
+                transition: .3s ;
+            }
+        }
+    }
+    section#title_works{
+        min-height: 330px ;
+        .inner{
+            max-width: 1000px ;
+            width: 100% ;
+            margin: 0 auto ;
+        }
+        h2.site_logo{
+            text-align: center ;
+            max-width: 191px ;
+            width: 20% ;
+            padding: 140px 0 0 0;
+            margin: 0 auto;
+        }
+    }
+    section#contents{
+        margin: -50px 0 0 0 ;
+        .inner{
+            width: 80vw ;
+            max-width: 1300px ;
+            margin: 0 auto ;
+        }
+        ul.works_detail{
+            font-size: 0 ;
+            width: 80vw;
+            max-width: 1300px ;
+            margin: 0 auto 50px auto;
+            text-align: center;
+            display: flex ;
+            li{
+                // max-width: 500px ;
+                @include Font-size( 16 );
+                vertical-align: top ;
+                &.works_main_img{
+                    width: 50% ;
+                    background: rgba(241,241,241,0.6) ;
+                }
+                &.works_info{
+                    background: rgba(241,241,241,0.6) ;
+                    display: inline-block ;
+                    padding: 30px ;
+                    width: 50% ;
+                    .date{
+                        margin: 0 0 5px ;
+                    }
+                    h1{
+                        @include Font-size(30);
+                        margin: 0 0 30px ;
+                        line-height: 1.1;
+                    }
+                }
+                dl{
+                    dt{
+                        @include Font-size(23);
+                        text-align: left;
+                        font-weight: 350;
+                        margin: 0 0 10px;
+                        padding: 0 10px 8px;
+                        border-bottom: 1px solid $Basic;
+                    }
+                    dd{
+                        display: block;
+                        text-align: left;
+                        margin: 0 0 20px;
+                        padding: 0 10px 0px;
+                        ul.works_charge{
+                            font-size: 0 ;
+                            display: flex ;
+                            flex-wrap: wrap;
+                            li{
+                                width: auto ;
+                                background: $Basic ;
+                                @include Font-size( 12 );
+                                padding: 5px 15px;
+                                border-radius: 20px;
+                                margin: 5px;
+                                color: #fff;
+                            }
+                        }
+                        ul.works_skill{
+                            font-size: 0 ;
+                            display: flex ;
+                            flex-wrap: wrap;
+                            li{
+                                width: auto ;
+                                background: $Basic ;
+                                @include Font-size( 12 );
+                                padding: 5px 15px;
+                                border-radius: 20px;
+                                margin: 5px;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        ul.works_photos{
+            font-size: 0 ;
+            text-align: center ;
+            width: 100% ;
+            display: flex ;
+            flex-wrap: wrap;
+            justify-content: center;
+            @include Font-size( 18 );
+            li{
+                width: calc(27vw - 2vw);
+                max-width: 407px ;
+                margin: 0 2vw 0 0;
+                position: relative ;
+                &:nth-child(3n),&:last-child{
+                    margin: 0 0 0 0 ;
+                }
+                .img_wrap{
+                    overflow: hidden ;
+                }
+                h3{
+                    background: rgba(255,255,255,0.6) ;
+                    padding: 10px 0 ;
+                }
+                a{
+                    color: #fff ;
+                }
+                .box_inner{
+                    overflow: hidden ;
+                }
+            }
+        }
+    }
+}
+// }
