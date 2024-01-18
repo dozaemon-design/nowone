@@ -3,6 +3,9 @@
 //sass template
 ////////////////////////////////////////////////////
 /* single-works.php ----------*/
+
+@import "function.scss";
+
 // @mixin LAYOUT-WORKS{
 body{
     background-size: 100%;
@@ -21,7 +24,7 @@ body{
         li{
             margin: 0 20px 20px 0 ;
             background: rgba(241,241,241,.6) ;
-            color: $Basic ;
+            color: $black ;
             text-align: center ;
             transition: .3s ;
             width: 25vw;
@@ -68,7 +71,7 @@ body{
             display: flex ;
             li{
                 // max-width: 500px ;
-                @include Font-size( 16 );
+                @include font-size-md ;
                 vertical-align: top ;
                 &.works_main_img{
                     width: 50% ;
@@ -83,19 +86,19 @@ body{
                         margin: 0 0 5px ;
                     }
                     h1{
-                        @include Font-size(30);
+                        @include font-size(30);
                         margin: 0 0 30px ;
                         line-height: 1.1;
                     }
                 }
                 dl{
                     dt{
-                        @include Font-size(23);
+                        @include font-size(23);
                         text-align: left;
                         font-weight: 350;
                         margin: 0 0 10px;
                         padding: 0 10px 8px;
-                        border-bottom: 1px solid $Basic;
+                        border-bottom: 1px solid $black;
                     }
                     dd{
                         display: block;
@@ -108,8 +111,8 @@ body{
                             flex-wrap: wrap;
                             li{
                                 width: auto ;
-                                background: $Basic ;
-                                @include Font-size( 12 );
+                                background: $black ;
+                                @include font-size-xs( 12 );
                                 padding: 5px 15px;
                                 border-radius: 20px;
                                 margin: 5px;
@@ -122,8 +125,8 @@ body{
                             flex-wrap: wrap;
                             li{
                                 width: auto ;
-                                background: $Basic ;
-                                @include Font-size( 12 );
+                                background: $black ;
+                                @include font-size-xs( 12 );
                                 padding: 5px 15px;
                                 border-radius: 20px;
                                 margin: 5px;
@@ -141,7 +144,7 @@ body{
             display: flex ;
             flex-wrap: wrap;
             justify-content: center;
-            @include Font-size( 18 );
+            @include font-size( 18 );
             li{
                 width: calc(27vw - 2vw);
                 max-width: 407px ;
