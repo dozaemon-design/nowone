@@ -34,10 +34,9 @@ echo $tag->name . ',';}}?>" />
 <link rel="alternate" type="application/rss+xml" title="RSS_FEED" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="alternate" type="application/atom+xml" title="ATOM_FEED" href="<?php bloginfo('atom_url'); ?>" />
 <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/common/favicon.ico"/>
-<script src="<?php echo get_template_directory_uri(); ?>/js/lib/jquery-2.2.4.min.js" type="text/javascript"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/lib/jquery-3.7.1.min.js" type="text/javascript"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/lib/jquery.easing.1.3.js" type="text/javascript"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/lib/augment.min.js" type="text/javascript"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.matchHeight.js" type="text/javascript"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.magnific-popup.js" type="text/javascript"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/chart.js" type="text/javascript"></script>
 
@@ -70,7 +69,7 @@ echo $tag->name . ',';}}?>" />
 <meta property="og:url" content="<?php bloginfo('template_url'); ?>" />
 <meta property="og:title" content="Nowone.jp" />
 <meta property="og:image" content="<?php bloginfo('template_url'); ?>/img/common/sns_image.jpg" />
-<meta property="og:description" content="ここはウェブデザイナーnowone.jpの趣味的サイトです。" />
+<meta property="og:description" content="ここはウェブデザイナーnowone.jpのポートフォリオサイトです。" />
 <?php else: ?>
 <meta property="og:site_name" content="Nowone.jp" />
 <meta property="og:type" content="website" />
@@ -91,12 +90,13 @@ echo $tag->name . ',';}}?>" />
 	$category = get_the_category();
 	$body_id = 'category_'.$category[0]->category_nicename.'';
 	} else if ( is_tax() ) {
-		$taxonomy = get_the_taxonomies();
-		$body_id = 'taxonomy_'.$taxonomy[0]->taxonomy_nicename.'';
+		// $taxonomy = get_the_taxonomies();
+		// $body_id = 'taxonomy_'.$taxonomy[0]->taxonomy_nicename.'';
+		$body_id = ' works ';
 	}
 ?>
-<body<?php echo ( $body_id ) ? ' id="'.$body_id.'"' : ''; ?>>
 
+<body <?php echo ( $body_id ) ? ' id="'.$body_id.'"' : ''; ?> >
 <!-- <header>
 	<nav id="gnav">
 	<ul>

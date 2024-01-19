@@ -21,8 +21,6 @@
 							<?php } ?>
 							</ul>
 						<?php } ?>
-
-
 					<?php the_post_thumbnail('archive_works_thumb'); ?>
 					</a>
 				</li>
