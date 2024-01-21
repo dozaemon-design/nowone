@@ -102,6 +102,8 @@ add_theme_support('post-thumbnails');
 set_post_thumbnail_size(1280,1024,true);
 //worksサムネイル画像サイズ
 add_image_size('works_thumb_img',350,300,true);
+
+
 //worksメイン画像サイズ
 add_image_size('works_main_img',750,700,true);
 //worksサブ画像サイズ

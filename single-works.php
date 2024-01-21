@@ -13,8 +13,9 @@
 			bcn_display();
 			}?>
 		</ul>
+		<!-- main info -->
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-			<ul class="works_detail">
+		<ul class="works_detail">
 				<li class="works_main_img matchH">
 					<?php echo wp_get_attachment_image(get_post_meta($post->ID, 'works_main_img', true),'works_main_img'); ?>
 				</li>
@@ -27,6 +28,7 @@
 					<?php } ?>
 					<h1><?php the_title(); ?></h1>
 					<dl>
+
 					<!-- 担当分野 -->
 						<dt>Field</dt>
 						<dd>
@@ -38,17 +40,19 @@
 								</ul>
 							<?php endif; ?>
 						</dd>
-					<!-- スキル -->
+
+						<!-- スキル -->
 						<dt>SKILL</dt>
 						<dd class="works_skill">
-							<?php $field = get_field('works_skill'); if ($field): ?>
+							<?php $skill = get_field('works_skill'); if ($skill): ?>
 							<ul class="works_skill">
-							<?php foreach( $field as $value ): ?>
+							<?php foreach( $skill as $value ): ?>
 								<li class="<?php echo $value; ?>"><?php echo $value; ?></li>
 							<?php endforeach; ?>
 							</ul>
 							<?php endif; ?>
 						</dd>
+
 						<!-- 作業内容・担当説明 -->
 						<dt>MESSAGE</dt>
 						<?php
@@ -56,6 +60,7 @@
 							if( $text ) { ?>
 							<p class="date"><?php the_field('works_message'); ?></p>
 						<?php } ?>
+
 						<!-- サイトURL -->
 						<?php if(get_field('works_url')): ?>
 							<dt>SITE URL</dt>
@@ -68,12 +73,14 @@
 			</ul>
 			<div class="inner">
 				<ul class="works_photos">
-				<?php if( get_field('works_sub_img_1') ) { ?>
-					<li class="matchH box">
+
+					<li class="matchH" >
+<!---------------- Thumbnail_1 ---------------->
 						<?php if( get_field('works_sub_text_1') ) { ?>
 							<h3><?php the_field('works_sub_text_1'); ?></h3>
 						<?php } ?>
 						<div class="box_inner">
+						<?php if( get_field('works_sub_img_1') ) { ?>
 							<?php
 							$image = get_field('works_sub_img_1'); //フィールド名「img_test」の画像オブジェクトの情報を取得
 							if(!empty($image)){
@@ -94,7 +101,7 @@
 						</div>
 					</li>
 				<?php } ?>
-
+<!---------------- Thumbnail_2 ---------------->
 				<?php if( get_field('works_sub_img_2') ) { ?>
 					<li class="matchH box">
 						<?php if( get_field('works_sub_text_2') ) { ?>
