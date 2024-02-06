@@ -1,0 +1,48 @@
+////////////////////////////////////////////
+//
+//absolute_config
+//
+////////////////////////////////////////////
+
+// @include absolute() //
+@mixin absolute($top:null, $right:null, $bottom:null, $left:null){
+    position: absolute;
+    @if $top != null{
+      top: $top;
+    }
+    @if $right != null{
+      right: $right;
+    }
+    @if $bottom != null{
+      bottom: $bottom;
+    }
+    @if $left != null{
+      left: $left;
+    }
+  }
+
+//=======================================
+//
+//	mediaquery cofig
+//
+//=======================================
+
+$Media_pc: 1230px ;
+$Media_tab: 1000px ;
+$Media_sp: 768px ;
+
+@mixin pc {
+  @media screen and (max-width: ($Media_pc)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media screen and (max-width: ($Media_tab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media screen and (max-width: ($Media_sp)) {
+    @content;
+  }
+}

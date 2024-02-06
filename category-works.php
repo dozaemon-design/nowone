@@ -1,33 +1,14 @@
-<?php get_header('header-works'); ?>
+<?php get_header('works'); ?>
+<!-- パラメーター出力用 -->
+<?/*php print_r($wp_query);*/ ?>
+<!-- パラメーター出力用 -->
+		<section id='title_works'>
+			<div class="inner">
+				<h2 class="site_logo"><img src="<?php bloginfo('template_url'); ?>/images/works/logo_works.svg" alt=""></h2>
+			</div>
+		</section>
+<!--head-->
+		<section id="contents" class="detail clearfix">
 
-		<section id="contents">
-		<ul class="works_archive">
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-				<li>
-					<a href="<?php the_permalink(); ?>">
-						<h2 class="pickup_title"><?php the_title(); ?></h2>
-						<!-- 作成年月日 -->
-						<?php
-						$text = get_field('works_year');
-						if( $text ) { ?>
-							<p><?php the_field('works_year'); ?></p>
-						<?php } ?>
-						<!-- 担当分野 -->
-						<?php if( get_field('works_charge') ) { ?>
-							<ul>
-							<?php $select = get_field('works_charge');
-								foreach ( (array)$select as $value ) { ?>
-								<li><?php echo $value; ?></li>
-							<?php } ?>
-							</ul>
-						<?php } ?>
-
-
-					<?php the_post_thumbnail('archive_works_thumb'); ?>
-					</a>
-				</li>
-			<?php endwhile; endif; ?>
-		</ul>
-		</section><!--contents-->
-
+		</section><!-- contents -->
 <?php get_footer(); ?>

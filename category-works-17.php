@@ -8,7 +8,15 @@
 			</div>
 		</section>
 <!--head-->
-		<section id="contents" class="detail clearfix">
 
+1717171717
+<section id="contents" class="detail clearfix">
+		<?php
+$cat_id = get_queried_object()->cat_ID;
+$post_id = 'category_'.$cat_id; 
+$catimg = get_field('works',$post_id);
+?>
+<h2><img src="<?php the_field('text',$post_id); ?>" alt=""><?php single_cat_title(); ?></h2>
+<div><?php the_field('works',$post_id); ?></div>
 		</section><!-- contents -->
 <?php get_footer(); ?>

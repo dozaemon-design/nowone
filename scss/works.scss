@@ -8,11 +8,6 @@
 
 // @mixin LAYOUT-WORKS{
 body{
-    // background: url(../images/works/bg_works_top.jpg) no-repeat top center;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
     background-color: #2e3133;
     ul.works_list{
         display: flex ;
@@ -20,6 +15,7 @@ body{
         flex-wrap: wrap ;
         width: 100% ;
         margin: 0 auto ;
+        color: $black;
         li{
             margin: 0 20px 20px 0 ;
             background: rgba(241,241,241,.6) ;
@@ -40,21 +36,28 @@ body{
         }
     }
     section#title_works{
-        min-height: 330px ;
+        background-image: url(../images/works/bg_works_top.jpg) ;
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: contain;
         .inner{
-            max-width: 1000px ;
             width: 100% ;
-            margin: 0 auto ;
+            min-height: 26vw ;
+            display: flex ;
+            justify-content: center;
+            align-items: center;
         }
         h2.site_logo{
             text-align: center ;
-            max-width: 191px ;
-            width: 20% ;
-            padding: 140px 0 0 0;
+            max-width: 100px ;
+            width: 9% ;
             margin: 0 auto;
+            // @include absolute(10px,10px,10px,10px)
         }
     }
     section#contents{
+        color: $black ;
         margin: -50px 0 0 0 ;
         .inner{
             width: 80vw ;
@@ -65,7 +68,7 @@ body{
             font-size: 0 ;
             width: 80vw;
             max-width: 1300px ;
-            margin: 0 auto 50px auto;
+            margin: 0 auto 2vw auto;
             text-align: center;
             display: flex ;
             li{
@@ -132,10 +135,28 @@ body{
                                 color: #fff;
                             }
                         }
+                        ul.works_message{
+                            text-align: left ;
+                        }
+                        &.site_url{
+                            a{
+                                text-decoration: none ;
+                                color: $white ;
+                                background: $link-color ;
+                                padding: 8px 16px ;
+                                border-radius: 30px ;
+                                display: inline-block;
+                                &:hover{
+                                    background: #000;
+                                    transition-duration: 1s  ;
+                                }
+                            } 
+                        }
                     }
                 }
             }
         }
+// サブページ集
         ul.works_photos{
             font-size: 0 ;
             text-align: center ;
@@ -144,19 +165,20 @@ body{
             flex-wrap: wrap;
             justify-content: center;
             @include font-size( 18 );
+            gap:2vw;
             li{
-                width: calc(27vw - 2vw);
-                max-width: 407px ;
-                margin: 0 2vw 0 0;
-                position: relative ;
-                &:nth-child(3n),&:last-child{
-                    margin: 0 0 0 0 ;
-                }
+                 width: 25vw;
+                // flex-grow: 1;
+                // max-width: 33.3333vw ;
+                // position: relative ;
+                // &:nth-child(3n),&:last-child{
+                //     margin: 0 0 0 0 ;
+                // }
                 .img_wrap{
                     overflow: hidden ;
                 }
                 h3{
-                    background: rgba(255,255,255,0.6) ;
+                    background: $bg-w ;
                     padding: 10px 0 ;
                 }
                 a{
@@ -169,4 +191,4 @@ body{
         }
     }
 }
-// }
+@include magnific-popup();

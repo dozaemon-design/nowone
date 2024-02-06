@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /*--------------------------------------
 	copyright : nowone
+  2024/1/19
 -----------------------------------*/
 body {
   background-color: #2e3133;
@@ -64,7 +65,8 @@ nav#gnav {
         right: 6px;
         bottom: -2px; }
       nav#gnav ul.gnav_list li img {
-        margin-right: 5px; }
+        margin-right: 5px;
+        width: 40px; }
   nav#gnav ul.sns {
     padding: 0px;
     display: grid;

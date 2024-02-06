@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?/*php print_r($wp_query);*/ ?>
 <div class="contents">
 <main>
 <ul class="category_list">

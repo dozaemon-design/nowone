@@ -29,8 +29,8 @@ remove_action('wp_head', 'wp_generator');
 
 ///////////////////////////////////////////////////////////
 //画像のサイズ値投稿削除
-add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
-add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
+// add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
+// add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
 
 function remove_width_attribute( $html ) {
   $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
@@ -63,11 +63,11 @@ function test_resize_dimensions( $first, $orig_w, $orig_h, $dest_w, $dest_h, $cr
 		$crop_h = round($new_h / $size_ratio);
 
 		// ↓もとの設定
-		//$s_x = floor( ($orig_w - $crop_w) / 2 ); // 切抜き時のX起点
-		//$s_y = floor( ($orig_h - $crop_h) / 2 ); // 切抜き時のY起点
+		$s_x = floor( ($orig_w - $crop_w) / 2 ); // 切抜き時のX起点
+		$s_y = floor( ($orig_h - $crop_h) / 2 ); // 切抜き時のY起点
 		// 左上にしたい場合
-		//$s_x = 0;
-		//$s_y = 0;
+		$s_x = 0;
+		$s_y = 0;
 		// 右上にしたい場合
 		$s_x = floor( ($orig_w - $crop_w) );
 		$s_y = 0;
@@ -95,6 +95,14 @@ add_filter( 'image_resize_dimensions', 'test_resize_dimensions', 10, 6 );
 
 
 //++++++++++++++++++++++++++++++++++++++
+add_image_size('thumbnail', 0, 0);
+add_image_size('medium', 0, 0);
+add_image_size('medium_large', 0, 0);
+add_image_size('large', 0, 0);
+add_image_size('1536x1536', 0, 0);
+add_image_size('2048x2048', 0, 0);
+
+
 //アイキャッチ
 add_theme_support('post-thumbnails');
 
@@ -107,107 +115,109 @@ add_image_size('works_thumb_img',350,300,true);
 //worksメイン画像サイズ
 add_image_size('works_main_img',750,700,true);
 //worksサブ画像サイズ
-add_image_size('works_sub_img',420,840,true);
+add_image_size('works_sub_img',750,500,true);
 //worksサブ画像ポップアップサイズ
 add_image_size('works_popup_img',750);
 
-//仕事ギャラリーサムネイルサイズ
-add_image_size('archive_works_thumb',768);
-//仕事ギャラリー投稿基本サイズ
-add_image_size('basic_works_post_size',1350);
+// 管理画面登録表示用サイズ
+add_image_size('works_kanri_img',162);
 
+//仕事ギャラリーサムネイルサイズ
+// add_image_size('archive_works_thumb',768);
+//仕事ギャラリー投稿基本サイズ
+// add_image_size('basic_works_post_size',1350);
 
 
 //++++++++++++++++++++++++++++++++++++++
 /* PRE_GET_POSTS 新着一覧等から保護を削除 */
-function customize_main_query ( $query ) {
-  if ( ! is_admin() || $query->is_main_query() ) { //管理画面以外 かつ メインクエリー
-    if ( $query->is_archive() || is_home() ) { //アーカイブとトップページから削除
-      $query->set( 'has_password', false );
-    }
-  }
-}
-add_action( 'pre_get_posts', 'customize_main_query' );
-// PRE_GET_POSTSにフック（）
+// function customize_main_query ( $query ) {
+//   if ( ! is_admin() || $query->is_main_query() ) { //管理画面以外 かつ メインクエリー
+//     if ( $query->is_archive() || is_home() ) { //アーカイブとトップページから削除
+//       $query->set( 'has_password', false );
+//     }
+//   }
+// }
+// add_action( 'pre_get_posts', 'customize_main_query' );
+// // PRE_GET_POSTSにフック（）
 
-//singleページのprev_nextのパスワード保護中記事を削除
-add_filter( 'get_next_post_where', 'my_get_post_where', 10, 5 );
-add_filter( 'get_previous_post_where', 'my_get_post_where', 10, 5 );
-function my_get_post_where( $where, $in_same_term, $excluded_terms ) {
-  if ( ! is_admin() && is_single() ) {
-    $where .= " AND p.post_password = '' ";
-  }
-  return $where;
-}
+// //singleページのprev_nextのパスワード保護中記事を削除
+// add_filter( 'get_next_post_where', 'my_get_post_where', 10, 5 );
+// add_filter( 'get_previous_post_where', 'my_get_post_where', 10, 5 );
+// function my_get_post_where( $where, $in_same_term, $excluded_terms ) {
+//   if ( ! is_admin() && is_single() ) {
+//     $where .= " AND p.post_password = '' ";
+//   }
+//   return $where;
+// }
 //++++++++++++++++++++++++++++++++++++++
 
 //rankingの画像サムネイル変更機能
-$GLOBALS["ranking_count"] = 1;
-function my_popular_post( $post_html, $p, $instance ){
-    // 投稿IDの取得
-    $post_id = $p->id;
-    // 投稿日時
-    $date = get_the_date('Y.m.d',$post_id);
-    // タイトル
-    $title = get_the_title($post_id);
-    // パーマリンク
-    $permalink = get_the_permalink($post_id);
-    // 画像（Advanced Custom Fieldsを使用）
-    if ( get_field('square_img',$post_id) ) {
-        // $image = get_field('square_img',$post_id);
-        // $imgurl = wp_get_attachment_url( $image );
-        $image = get_field('square_img',$post_id);
-        $imgurl = wp_get_attachment_image_src( $image,'90' );
-        $imghtml = '<img src="'.$imgurl[ 0 ].'" alt="" width="90">';
-    } elseif(has_post_thumbnail()) {
-        // $thumbnail_id = get_post_thumbnail_id( $p->id);
-        // $imgurl = wp_get_attachment_url( $thumbnail_id, );
-        $thumbnail_id = get_post_thumbnail_id( $p->id);
-        $imgurl = wp_get_attachment_image_src( $thumbnail_id,'sidebar_thumb_size' );
-        $imghtml = '<img src="'.$imgurl[ 0 ].'" alt="" width="90">';
-    }
-     else {
-        $imgurl = get_bloginfo('template_url') . '/images/common/no_image_side.jpg';
-        $imghtml = '<img src="'.$imgurl[ 0 ].'" alt="" width="90">';
-    }
-    // ランキング
-    $ranking = $GLOBALS["ranking_count"]++;
-// ランキング体裁出力
-echo <<< EOF
-<li>
-  <a href="{$permalink}">
-    <div class="ranking_thumb">{$imghtml}</div>
-    <div class="ranking_title">{$title}</div>
-  </a>
-</li>
-EOF;
-}
-add_filter( 'wpp_post', 'my_popular_post', 10, 3 );
-//++++++++++++++++++++++++++++++++++++++
+// $GLOBALS["ranking_count"] = 1;
+// function my_popular_post( $post_html, $p, $instance ){
+//     // 投稿IDの取得
+//     $post_id = $p->id;
+//     // 投稿日時
+//     $date = get_the_date('Y.m.d',$post_id);
+//     // タイトル
+//     $title = get_the_title($post_id);
+//     // パーマリンク
+//     $permalink = get_the_permalink($post_id);
+//     // 画像（Advanced Custom Fieldsを使用）
+//     if ( get_field('square_img',$post_id) ) {
+//         // $image = get_field('square_img',$post_id);
+//         // $imgurl = wp_get_attachment_url( $image );
+//         $image = get_field('square_img',$post_id);
+//         $imgurl = wp_get_attachment_image_src( $image,'90' );
+//         $imghtml = '<img src="'.$imgurl[ 0 ].'" alt="" width="90">';
+//     } elseif(has_post_thumbnail()) {
+//         // $thumbnail_id = get_post_thumbnail_id( $p->id);
+//         // $imgurl = wp_get_attachment_url( $thumbnail_id, );
+//         $thumbnail_id = get_post_thumbnail_id( $p->id);
+//         $imgurl = wp_get_attachment_image_src( $thumbnail_id,'sidebar_thumb_size' );
+//         $imghtml = '<img src="'.$imgurl[ 0 ].'" alt="" width="90">';
+//     }
+//      else {
+//         $imgurl = get_bloginfo('template_url') . '/images/common/no_image_side.jpg';
+//         $imghtml = '<img src="'.$imgurl[ 0 ].'" alt="" width="90">';
+//     }
+//     // ランキング
+//     $ranking = $GLOBALS["ranking_count"]++;
+// // ランキング体裁出力
+// echo <<< EOF
+// <li>
+//   <a href="{$permalink}">
+//     <div class="ranking_thumb">{$imghtml}</div>
+//     <div class="ranking_title">{$title}</div>
+//   </a>
+// </li>
+// EOF;
+// }
+// add_filter( 'wpp_post', 'my_popular_post', 10, 3 );
+// //++++++++++++++++++++++++++++++++++++++
 
-//画像リンク削除
-add_filter( 'the_content', 'attachment_image_link_remove_filter' );
-function attachment_image_link_remove_filter( $content ) {
- $content =  preg_replace(  array('{<a(.*?)(wp-att|wp-content/uploads)[^>]*><img}',  '{ wp-image-[0-9]*" /></a>}'), array('<img','" />'),  $content  );
- return $content;
- }
-/* as seen on http://wpmu.org/how-to-remove-links-from-wordpress-images/ */
+// //画像リンク削除
+// add_filter( 'the_content', 'attachment_image_link_remove_filter' );
+// function attachment_image_link_remove_filter( $content ) {
+//  $content =  preg_replace(  array('{<a(.*?)(wp-att|wp-content/uploads)[^>]*><img}',  '{ wp-image-[0-9]*" /></a>}'), array('<img','" />'),  $content  );
+//  return $content;
+//  }
+// /* as seen on http://wpmu.org/how-to-remove-links-from-wordpress-images/ */
 
-function my_remove_img_attr($html, $id, $alt, $title, $align, $size){
+// function my_remove_img_attr($html, $id, $alt, $title, $align, $size){
 
-	$html = preg_replace('/ width=&quot;d+&quot;/', '', $html);
-	$html = preg_replace('/ height=&quot;d+&quot;/', '', $html);
-	$html = preg_replace('/ class=&quot;.+&quot;/', '', $html);
-	$html = preg_replace('/ title=&quot;.+&quot;/', '', $html);
-return $html;
-}
-add_action( 'get_image_tag', 'my_remove_img_attr', 1 ,6);
+// 	$html = preg_replace('/ width=&quot;d+&quot;/', '', $html);
+// 	$html = preg_replace('/ height=&quot;d+&quot;/', '', $html);
+// 	$html = preg_replace('/ class=&quot;.+&quot;/', '', $html);
+// 	$html = preg_replace('/ title=&quot;.+&quot;/', '', $html);
+// return $html;
+// }
+// add_action( 'get_image_tag', 'my_remove_img_attr', 1 ,6);
 
-// Get the featured image URL
-function get_featured_image_url() {
-    $image_id = get_post_thumbnail_id();
-    $image_url = wp_get_attachment_image_src($image_id,'main_post_image', true);
-    echo $image_url[0];
-}
+// // Get the featured image URL
+// function get_featured_image_url() {
+//     $image_id = get_post_thumbnail_id();
+//     $image_url = wp_get_attachment_image_src($image_id,'main_post_image', true);
+//     echo $image_url[0];
+// }
 
 ?>

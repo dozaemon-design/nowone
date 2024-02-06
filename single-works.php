@@ -1,5 +1,7 @@
 <?php get_header('works'); ?>
-
+<!-- パラメーター出力用 -->
+<?php print_r($wp_query); ?>
+<!-- パラメーター出力用 -->
 		<section id='title_works'>
 			<div class="inner">
 				<h2 class="site_logo"><img src="<?php bloginfo('template_url'); ?>/images/works/logo_works.svg" alt=""></h2>
@@ -13,13 +15,37 @@
 			bcn_display();
 			}?>
 		</ul>
-		<!-- main info -->
+
+		<!-- work_category_list -->
+	<?php
+$terms = get_terms( $taxonomies, $args );
+foreach( $terms as $term ):
+$term_link = esc_url(get_term_link($term)); // タームのリンク
+endforeach;
+?>
+
+<?php foreach( $field as $value ): ?>
+									<li class="<?php echo $value; ?>"><?php echo $value; ?></li>
+								<?php endforeach; ?>
+								</ul>
+<?php
+$terms = get_terms( $taxonomies, $args );
+foreach( $terms as $term ):
+$term_link = esc_url(get_term_link($term)); // タームのリンク
+endforeach;
+?>
+<ul><li><?php esc_url(get_term_link($term)); ?></li></ul>
+
+
+
+
+<!-------------- main contents -------------->
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<ul class="works_detail">
-				<li class="works_main_img matchH">
+				<li class="works_main_img">
 					<?php echo wp_get_attachment_image(get_post_meta($post->ID, 'works_main_img', true),'works_main_img'); ?>
 				</li>
-				<li class="works_info matchH">
+				<li class="works_info">
 					<!-- 作成年月日 -->
 					<?php
 					$text = get_field('works_year');
@@ -55,16 +81,18 @@
 
 						<!-- 作業内容・担当説明 -->
 						<dt>MESSAGE</dt>
-						<?php
-							$text = get_field('works_message');
-							if( $text ) { ?>
-							<p class="date"><?php the_field('works_message'); ?></p>
-						<?php } ?>
+						<dd>
+							<?php
+								$text = get_field('works_message');
+								if( $text ) { ?>
+								<p class="date"><?php the_field('works_message'); ?></p>
+							<?php } ?>
+						</dd>
 
 						<!-- サイトURL -->
 						<?php if(get_field('works_url')): ?>
 							<dt>SITE URL</dt>
-							<dd>
+							<dd class="site_url">
 								<a href="<?php the_field('works_url'); ?>" target="_blank"><?php the_field('works_url'); ?></a>
 							</dd>
 						<?php endif; ?>
@@ -74,8 +102,8 @@
 			<div class="inner">
 				<ul class="works_photos">
 
-					<li class="matchH" >
 <!---------------- Thumbnail_1 ---------------->
+					<li class="box" >
 						<?php if( get_field('works_sub_text_1') ) { ?>
 							<h3><?php the_field('works_sub_text_1'); ?></h3>
 						<?php } ?>
@@ -103,7 +131,7 @@
 				<?php } ?>
 <!---------------- Thumbnail_2 ---------------->
 				<?php if( get_field('works_sub_img_2') ) { ?>
-					<li class="matchH box">
+					<li class="box box">
 						<?php if( get_field('works_sub_text_2') ) { ?>
 							<h3><?php the_field('works_sub_text_2'); ?></h3>
 						<?php } ?>
@@ -117,7 +145,7 @@
 								$size = 'works_sub_img';
 								$size2 = 'works_popup_img'; //出力サイズを変数に格納
 								$imgThumb = $image['sizes'][ $size ];
-								$imgThumbFull = $image['sizes'][ $size2 ]; //サムネイル画像のURL
+								$imgThumbFull = $image['sizes'][ $size2 ]; //ポップアップサムネイル画像のURL
 							?>
 							<a href="<?php echo $imgThumbFull; ?>" class="popup">
 							<div class="img_wrap">
@@ -128,9 +156,9 @@
 						</div>
 					</li>
 				<?php } ?>
-
+<!---------------- Thumbnail_3 ---------------->
 				<?php if( get_field('works_sub_img_3') ) { ?>
-					<li class="matchH box">
+					<li class="box box">
 						<?php if( get_field('works_sub_text_3') ) { ?>
 							<h3><?php the_field('works_sub_text_3'); ?></h3>
 						<?php } ?>
@@ -155,8 +183,9 @@
 						</div>
 					</li>
 				<?php } ?>
+<!---------------- Thumbnail_4 ---------------->
 				<?php if( get_field('works_sub_img_4') ) { ?>
-					<li class="matchH box">
+					<li class="box box">
 						<?php if( get_field('works_sub_text_4') ) { ?>
 							<h3><?php the_field('works_sub_text_4'); ?></h3>
 						<?php } ?>
@@ -181,8 +210,9 @@
 						</div>
 					</li>
 				<?php } ?>
+<!---------------- Thumbnail_5 ---------------->
 				<?php if( get_field('works_sub_img_5') ) { ?>
-					<li class="matchH box">
+					<li class="box box">
 						<?php if( get_field('works_sub_text_5') ) { ?>
 							<h3><?php the_field('works_sub_text_5'); ?></h3>
 						<?php } ?>

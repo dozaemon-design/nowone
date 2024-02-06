@@ -78,6 +78,7 @@ nav#gnav ul.gnav_list li:before {
 }
 nav#gnav ul.gnav_list li img {
   margin-right: 5px;
+  width: 40px;
 }
 nav#gnav ul.sns {
   padding: 0px;
