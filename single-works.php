@@ -17,24 +17,11 @@
 		</ul>
 
 		<!-- work_category_list -->
-	<?php
-$terms = get_terms( $taxonomies, $args );
-foreach( $terms as $term ):
-$term_link = esc_url(get_term_link($term)); // タームのリンク
-endforeach;
-?>
 
-<?php foreach( $field as $value ): ?>
-									<li class="<?php echo $value; ?>"><?php echo $value; ?></li>
-								<?php endforeach; ?>
-								</ul>
-<?php
-$terms = get_terms( $taxonomies, $args );
-foreach( $terms as $term ):
-$term_link = esc_url(get_term_link($term)); // タームのリンク
-endforeach;
-?>
-<ul><li><?php esc_url(get_term_link($term)); ?></li></ul>
+<ul>
+	<li>ああああ</li>
+	<li>いいい</li>
+</ul>
 
 
 
