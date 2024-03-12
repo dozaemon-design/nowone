@@ -50,7 +50,7 @@ body section#title_works h2.site_logo {
 }
 body section#contents {
   color: #2e3133;
-  margin: -50px 0 0 0;
+  margin: -50px 0 25px 0;
 }
 body section#contents .inner {
   width: 80vw;
@@ -169,6 +169,31 @@ body section#contents ul.works_photos li a {
 }
 body section#contents ul.works_photos li .box_inner {
   overflow: hidden;
+}
+
+ul.category_works {
+  width: 80vw;
+  max-width: 1300px;
+  display: flex;
+  margin: 0 auto;
+  gap: 1vw;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+ul.category_works li.works_category_list {
+  width: 25vw;
+  text-align: center;
+  background: rgba(241, 241, 241, 0.6);
+}
+ul.category_works a {
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  color: #2e3133;
+}
+ul.category_works a h2 {
+  margin: 4px 0 4px 0;
 }
 
 /* Magnific Popup CSS */

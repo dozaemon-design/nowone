@@ -8,7 +8,23 @@
 			</div>
 		</section>
 <!--head-->
-		<section id="contents" class="detail clearfix">
-
+		<section id="contents" class="detail">
+        <!-- <h2 class="category-heading"><?php single_cat_title(); ?>カテゴリー一覧</h2> -->
+        <ul class="category_works">
+            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+						<li class="works_category_list">
+								<a href="<?php the_permalink(); ?>">
+										<!-- タイトル -->
+												<?php echo wp_get_attachment_image(get_post_meta($post->ID, 'works_main_img', true),'works_main_img'); ?>
+												<h2 class="works_title">
+												<!-- 日付 -->
+												<?php the_title(); ?>
+												</h2>
+								</a>
+							</li>
+								<?php endwhile; ?>
+					<?php endif;
+					wp_reset_postdata(); ?>
+        </ul>
 		</section><!-- contents -->
 <?php get_footer(); ?>

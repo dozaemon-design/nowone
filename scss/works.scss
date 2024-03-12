@@ -58,7 +58,7 @@ body{
     }
     section#contents{
         color: $black ;
-        margin: -50px 0 0 0 ;
+        margin: -50px 0 25px 0 ;
         .inner{
             width: 80vw ;
             max-width: 1300px ;
@@ -191,4 +191,34 @@ body{
         }
     }
 }
+////////////////////
+//archive-works
+////////////////////
+ul.category_works{
+    width: 80vw;
+    max-width: 1300px;
+    display: flex;
+    margin: 0 auto;
+    gap: 1vw;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    li.works_category_list{
+        width: 25vw ;
+        text-align: center ;
+        background: rgba(241,241,241,0.6)
+
+    }
+    a{
+        text-align: center ;
+        display: inline-block ;
+        text-decoration: none ;
+        color: $black ;
+        h2{
+            margin: 4px 0 4px 0 ;
+        }
+    }
+}
+
+
 @include magnific-popup();

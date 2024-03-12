@@ -8,7 +8,24 @@
 			</div>
 		</section>
 <!--head-->
-		<section id="contents" class="detail clearfix">
+<ul class="category_list">
+<?php
+	// 親カテゴリーのものだけを一覧で取得
+	$args = array(
+		'parent' => 1,
+		'orderby' => 'term_order',
+		'order' => 'ASC'
+	);
+	$categories = get_categories( $args );
+?>
+カテゴリー
+<?php foreach( $categories as $category ) : ?>
+  <li>
+    <a href="<?php echo get_category_link( $category->term_id ); ?>"><?php echo $category->name; ?></a>
+  </li>
+<?php endforeach; ?>
+</ul>
+<section id="contents" class="detail clearfix">
 
 		</section><!-- contents -->
 <?php get_footer(); ?>

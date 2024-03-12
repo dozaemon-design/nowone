@@ -22,7 +22,8 @@
 	<li>ああああ</li>
 	<li>いいい</li>
 </ul>
-
+<?php $field = get_field_object("works");
+var_dump($field);?>
 
 
 
