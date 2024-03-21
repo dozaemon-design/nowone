@@ -170,6 +170,12 @@ body section#contents ul.works_photos li a {
 body section#contents ul.works_photos li .box_inner {
   overflow: hidden;
 }
+body .back_btn {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 4vw;
+}
 
 ul.category_works {
   width: 80vw;

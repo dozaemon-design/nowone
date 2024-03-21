@@ -18,14 +18,8 @@
 
 		<!-- work_category_list -->
 
-<ul>
-	<li>ああああ</li>
-	<li>いいい</li>
-</ul>
-<?php $field = get_field_object("works");
-var_dump($field);?>
-
-
+<?/*php $field = get_field_object("works");
+var_dump($field);*/?>
 
 <!-------------- main contents -------------->
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -229,4 +223,8 @@ var_dump($field);?>
 			</div>
 			<?php endwhile; endif; ?>
 		</section><!-- contents -->
+<div class="back_btn">
+<a href="javascript:history.back()"><img src="<?php bloginfo('template_url'); ?>/images/works/back_btn.svg" alt="戻る"></a>
+</div>
+<!-- <input value="前に戻る" onclick="history.back();" type="button"> -->
 <?php get_footer(); ?>
