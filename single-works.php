@@ -1,6 +1,6 @@
 <?php get_header('works'); ?>
 <!-- パラメーター出力用 -->
-<?php print_r($wp_query); ?>
+<?/*php print_r($wp_query);*/ ?>
 <!-- パラメーター出力用 -->
 		<section id='title_works'>
 			<div class="inner">

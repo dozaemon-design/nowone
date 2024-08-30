@@ -4,21 +4,21 @@
 // register_sidebar(1);
 // register_sidebar(ranking);
 //カスタムメニュー
-register_nav_menus(array(
-'navigation' => ' ナビゲーションバー ',
-'subnavigation' => ' サブナビゲーションバー '
-));
+// register_nav_menus(array(
+// 'navigation' => ' ナビゲーションバー ',
+// 'subnavigation' => ' サブナビゲーションバー '
+// ));
 
-///////////////////////////////////////////////////////////
-//管理画面関連
-//本体のアップデート通知を非表示
-add_filter('pre_site_transient_update_core', create_function('$a', "return  null;"));
-//プラグイン更新通知を非表示
-remove_action( 'load-update-core.php', 'wp_update_plugins' );
-add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
-///////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////
+// //管理画面関連
+// //本体のアップデート通知を非表示
+// add_filter('pre_site_transient_update_core', create_function('$a', "return  null;"));
+// //プラグイン更新通知を非表示
+// remove_action( 'load-update-core.php', 'wp_update_plugins' );
+// add_filter( 'pre_site_transient_update_plugins', create_function( '$a', "return null;" ) );
+// ///////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////初期データ削除
+// ///////////////////////////////////////////////初期データ削除
 //前の記事と後の記事のURL(rel="next"、rel="prev")を削除
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
 
@@ -27,18 +27,18 @@ remove_action('wp_head', 'wp_generator');
 ////////////////////////////////////////////////
 
 
-///////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////
 //画像のサイズ値投稿削除
 // add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
 // add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
 
-function remove_width_attribute( $html ) {
-  $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
-  return $html;
-}
-///////////////////////////////////////////////////////////
+// function remove_width_attribute( $html ) {
+//   $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
+//   return $html;
+// }
+// ///////////////////////////////////////////////////////////
 
-// functions.phpに記述
+// // functions.phpに記述
 function test_resize_dimensions( $first, $orig_w, $orig_h, $dest_w, $dest_h, $crop ){
 
 	if( false ) return $first;
@@ -123,9 +123,9 @@ add_image_size('works_popup_img',750);
 add_image_size('works_kanri_img',162);
 
 //仕事ギャラリーサムネイルサイズ
-// add_image_size('archive_works_thumb',768);
+add_image_size('archive_works_thumb',768);
 //仕事ギャラリー投稿基本サイズ
-// add_image_size('basic_works_post_size',1350);
+add_image_size('basic_works_post_size',1350);
 
 
 //++++++++++++++++++++++++++++++++++++++
