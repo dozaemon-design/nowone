@@ -178,12 +178,10 @@ body .back_btn {
 }
 
 ul.category_works {
-  width: 80vw;
   max-width: 1300px;
   display: flex;
-  margin: 0 auto;
   gap: 1vw;
-  align-items: center;
+  align-items: normal;
   flex-wrap: wrap;
   justify-content: center;
 }
