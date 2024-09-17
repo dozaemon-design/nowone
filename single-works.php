@@ -85,7 +85,7 @@ var_dump($field);*/?>
 				<ul class="works_photos">
 
 <!---------------- Thumbnail_1 ---------------->
-					<li class="box" >
+					<li class="box btn" >
 						<?php if( get_field('works_sub_text_1') ) { ?>
 							<h3><?php the_field('works_sub_text_1'); ?></h3>
 						<?php } ?>
@@ -113,7 +113,7 @@ var_dump($field);*/?>
 				<?php } ?>
 <!---------------- Thumbnail_2 ---------------->
 				<?php if( get_field('works_sub_img_2') ) { ?>
-					<li class="box box">
+					<li class="box btn">
 						<?php if( get_field('works_sub_text_2') ) { ?>
 							<h3><?php the_field('works_sub_text_2'); ?></h3>
 						<?php } ?>
@@ -140,7 +140,7 @@ var_dump($field);*/?>
 				<?php } ?>
 <!---------------- Thumbnail_3 ---------------->
 				<?php if( get_field('works_sub_img_3') ) { ?>
-					<li class="box box">
+					<li class="box btn">
 						<?php if( get_field('works_sub_text_3') ) { ?>
 							<h3><?php the_field('works_sub_text_3'); ?></h3>
 						<?php } ?>
@@ -167,7 +167,7 @@ var_dump($field);*/?>
 				<?php } ?>
 <!---------------- Thumbnail_4 ---------------->
 				<?php if( get_field('works_sub_img_4') ) { ?>
-					<li class="box box">
+					<li class="box btn">
 						<?php if( get_field('works_sub_text_4') ) { ?>
 							<h3><?php the_field('works_sub_text_4'); ?></h3>
 						<?php } ?>
@@ -194,7 +194,7 @@ var_dump($field);*/?>
 				<?php } ?>
 <!---------------- Thumbnail_5 ---------------->
 				<?php if( get_field('works_sub_img_5') ) { ?>
-					<li class="box box">
+					<li class="box btn">
 						<?php if( get_field('works_sub_text_5') ) { ?>
 							<h3><?php the_field('works_sub_text_5'); ?></h3>
 						<?php } ?>

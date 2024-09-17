@@ -1,4 +1,11 @@
 /* single-works.php ----------*/
+.btn {
+  transition: 0.4s;
+}
+.btn:hover {
+  transform: scale(1.1);
+}
+
 body {
   background-color: #2e3133;
 }
@@ -178,7 +185,6 @@ body .back_btn {
 }
 
 ul.category_works {
-  max-width: 1300px;
   display: flex;
   gap: 1vw;
   align-items: normal;
@@ -197,7 +203,7 @@ ul.category_works a {
   color: #2e3133;
 }
 ul.category_works a h2 {
-  margin: 4px 0 4px 0;
+  margin: 8px;
 }
 
 /* Magnific Popup CSS */

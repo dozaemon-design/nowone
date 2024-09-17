@@ -203,7 +203,7 @@ body{
 ////////////////////
 ul.category_works{
     // width: 80vw;
-    max-width: 1300px;
+    // max-width: 1300px;
     display: flex;
     // margin: 0 auto;
     gap: 1vw;
@@ -222,7 +222,7 @@ ul.category_works{
         text-decoration: none ;
         color: $black ;
         h2{
-            margin: 4px 0 4px 0 ;
+            margin: 8px ;
         }
     }
 }
